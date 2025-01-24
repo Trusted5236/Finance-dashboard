@@ -5,7 +5,9 @@ import Linechart from '../Componets/Linechart'
 import { useLocation } from 'react-router-dom'
 
 
+
 const Coin = () => {
+    
     const {state} = useLocation()
     const currency = state.currency
     

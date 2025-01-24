@@ -6,14 +6,16 @@ import StockChart from '../Componets/StockChart'
 import { useState } from 'react'
 
 
+
 const StockData = () => {
+    
     const location = useLocation()
     const [symbols, setSymbols] = useState(["MSFT", "AAPL", "IBM"])
     const { symbol } = useParams()
     const currency = location.state.currency
     console.log(currency)
 
-    
+    //Fetching data for the stock
     const { data : stocks = {}, isLoading, error} = useQuery({
         queryFn : () => fetch(`https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol=${symbols.join(",")}&apikey=demo`).then((res)=>{return res.json()}),
     
@@ -33,7 +35,7 @@ const StockData = () => {
         </div>
 
 
-        <div className='w-full h-auto flex items-center justify-center flex-col gap-y-[1rem] py-[2rem] font-bold text-slate-700'>
+        <div className='w-full h-auto flex items-center justify-center flex-col gap-y-[1rem] py-[2rem] font-bold'>
            { stocks.data.filter(stock => stock.symbol === symbol)  // 
           .map((stock, index) => (
             <div key={index}>

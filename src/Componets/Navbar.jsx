@@ -9,6 +9,7 @@ import { useState } from 'react';
 const Navbar = () => {
     const [light, setLight] = useState(()=>{return localStorage.getItem("light") === "true"})
 
+    //Change the theme
     useEffect(()=>{
         if(light){
             document.body.style.backgroundColor = 'white'
@@ -19,6 +20,7 @@ const Navbar = () => {
         }
     }, [light])
 
+    //Toggle the theme
     const handleToggle = () => {
         setLight((prevLight) => {
             const newLight = !prevLight;

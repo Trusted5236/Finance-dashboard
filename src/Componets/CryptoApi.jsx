@@ -4,9 +4,12 @@ const API_URL = "TCG-MAWa7mLn69QVfrUoEN6yNtuq"
 import { CiSearch } from "react-icons/ci";
 import { useState } from 'react';
 import {NavLink} from "react-router-dom";
+import ThemeContext from './ThemeContext';
+import { useContext } from 'react';
 
 
 const CryptoApi = () => {
+  const {light} = useContext(ThemeContext)
   const [input, setInput] = useState('')
   const [coins, setCoins] = useState([])
   const [currency, setCurrency] = useState('usd')
@@ -53,7 +56,7 @@ const CryptoApi = () => {
 
         <div className='flex flex-row items-center justify-between gap-x-[1rem] w-[100%]'>
           
-        <form onSubmit={handleSubmit} className='flex flex-row items-center border-[0.1rem] rounded-[1rem] mb-[2.5rem] py-[0.5rem] px-[1rem] w-[50%] justify-center'>
+        <form onSubmit={handleSubmit} className='flex flex-row items-center border-[0.1rem] rounded-[1rem] mb-[2.5rem] py-[0.5rem] px-[1rem] w-[50%] justify-center bg-white text-black'>
 
 
               <input 
@@ -69,7 +72,7 @@ const CryptoApi = () => {
               
           </form>
           
-          <div className='flex flex-row items-center gap-x-[1rem]'>
+          <div className={light ? 'flex flex-row items-center gap-x-[1rem] text-black' : 'flex flex-row items-center gap-x-[1rem] text-black'}>
             <select 
             name="currency" 
             value={currency}
@@ -84,7 +87,9 @@ const CryptoApi = () => {
         </div>
 
 
-      <div className='flex flex-row items-center justify-between gap-x-[1rem] p-[1rem] bg-[#F5F5F5] w-[100%] py-[1rem] px-[2rem] border-b-[0.1rem]'>
+      <div className={light 
+    ? "flex flex-row items-center justify-between gap-x-[1rem] bg-[#F5F5F5] w-full py-[1rem] px-[2rem] border-b-[0.1rem] text-black" 
+    : "flex flex-row items-center justify-between gap-x-[1rem] bg-slate-300 w-full py-[1rem] px-[2rem] border-b-[0.1rem] text-black"}>
             <p>#</p>
             <p>Coins</p>
             <p>Price</p>

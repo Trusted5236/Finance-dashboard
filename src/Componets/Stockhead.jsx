@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import StockChart from './StockChart';
 
+
+
 const Stockhead = () => {
   
     const [input, setInput] = useState('')
@@ -40,7 +42,7 @@ const Stockhead = () => {
         </div>
 <div className='flex flex-row items-center justify-between gap-x-[1rem] w-[100%]'>
         
-<form onSubmit={handleSubmit} className='flex flex-row items-center border-[0.1rem] rounded-[1rem] mb-[2.5rem] py-[0.5rem] px-[1rem] w-[50%] justify-center'>
+<form onSubmit={handleSubmit} className='flex flex-row items-center border-[0.1rem] rounded-[1rem] mb-[2.5rem] py-[0.5rem] px-[1rem] w-[50%] justify-center bg-white text-black'>
         
         
         <input 
@@ -61,7 +63,7 @@ const Stockhead = () => {
             name="currency" 
             value={currency}
             onChange={(e) => setCurrency(e.target.value)}
-            className='flex flex-row items-center border-[0.1rem] rounded-[1rem] mb-[2.5rem] py-[0.5rem] px-[1rem] w-[100%] justify-center outline-none'>
+            className='flex flex-row items-center border-[0.1rem] rounded-[1rem] mb-[2.5rem] py-[0.5rem] px-[1rem] w-[100%] justify-center outline-none text-black'>
               <option value="$">USD</option>
               <option value="£">EUR</option>
               <option value="€">GBP</option>
@@ -69,7 +71,7 @@ const Stockhead = () => {
           </div>
 </div>
 
-        <div className='flex flex-row items-center justify-between gap-x-[1rem] p-[1rem] bg-[#F5F5F5] w-[100%] py-[1rem] px-[2rem] border-b-[0.1rem]'>
+        <div className='flex flex-row items-center justify-between gap-x-[1rem] p-[1rem] bg-[#F5F5F5] w-[100%] py-[1rem] px-[2rem] border-b-[0.1rem] text-black'>
             <p>#</p>
             <p>Symbol</p>
             <p>Price</p>

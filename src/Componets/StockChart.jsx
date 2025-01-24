@@ -6,6 +6,7 @@ import { useState } from 'react'
 const StockChart = ({fetchedData}) => {
     const [data, setData] = useState([["Date", "Price"]])
 
+//useEffect to update the data when the fetchedData changes
     useEffect(() => {
         let dataCopy = [["Date", "Price"]]
         
@@ -15,12 +16,12 @@ const StockChart = ({fetchedData}) => {
                 dataCopy.push([date.toLocaleDateString(), parseFloat(stock.close)])
             })
         }   
-        
+
         setData(dataCopy)
         console.log(data)
     }, [fetchedData])
 
-
+//returning the LineChart with the data
   return (
     <div>
         <Chart

@@ -11,6 +11,8 @@ const CryptoApi = () => {
   const [coins, setCoins] = useState([])
   const [currency, setCurrency] = useState('usd')
 
+
+  //Fetching data for the coins
   const { data : posts = [], isLoading, error} = useQuery({
     queryFn : () => fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}`).then((res)=>{return res.json()}),
 
@@ -37,6 +39,8 @@ const CryptoApi = () => {
 
     
   return (
+
+    //Displaying the fetched data
     <div>
      
          <div className='flex flex-col items-center justify-center gap-y-[2rem] w-[100%]'>
@@ -65,7 +69,6 @@ const CryptoApi = () => {
               
           </form>
           
-
           <div className='flex flex-row items-center gap-x-[1rem]'>
             <select 
             name="currency" 
@@ -85,8 +88,8 @@ const CryptoApi = () => {
             <p>#</p>
             <p>Coins</p>
             <p>Price</p>
-            <p>24H Change</p>
-            <p>Market Cap</p>
+            <p className='hidden md:flex'>24H Change</p>
+            <p className='hidden md:flex'>Market Cap</p>
 
         </div>
         
@@ -101,8 +104,8 @@ const CryptoApi = () => {
               <h1><span>{post.name}</span>-<span className='uppercase'>{post.symbol}</span></h1>
             </div>
             <h1>{`${currency === "usd" ? "$" : "" || currency === "eur" ? "£" : "" || currency === "gbp" ? "€" : ""}${post.current_price}`}</h1>
-            <h1 className={post.price_change_percentage_24h < 0 ? "text-red-600" : "text-green-600"}>{post.price_change_percentage_24h}</h1>
-            <h1>{`${currency === "usd" ? "$" : "" || currency === "eur" ? "£" : "" || currency === "gbp" ? "€" : ""}${post.market_cap}`}</h1>
+            <h1 className={post.price_change_percentage_24h < 0 ? "text-red-600 hidden md:flex" : "text-green-600 hidden md:flex"}>{post.price_change_percentage_24h}</h1>
+            <h1 className='hidden md:flex'>{`${currency === "usd" ? "$" : "" || currency === "eur" ? "£" : "" || currency === "gbp" ? "€" : ""}${post.market_cap}`}</h1>
           </NavLink>
 
         ))}

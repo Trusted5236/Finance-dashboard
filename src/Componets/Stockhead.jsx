@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import StockChart from './StockChart';
 
 const Stockhead = () => {
+  
     const [input, setInput] = useState('')
     const [searchedStock, setSearchedStock] = useState([])
     const {stocks, isLoading, error} = useContext(stockContext) 
@@ -27,6 +28,7 @@ const Stockhead = () => {
       setSearchedStock(stocks)
     }
 
+    
     const stocksToDisplay = searchedStock.length > 0 ? searchedStock : stocks.data
   return (
     <div>

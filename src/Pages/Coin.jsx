@@ -11,12 +11,16 @@ const Coin = () => {
     
     const { coinId } = useParams()
 
+
+    //Fetching data for the coin
     const { data : coinData = [], isLoading, error} = useQuery({
         queryFn : () => fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`).then((res)=>{return res.json()}),
         
         queryKey: ["coinData", coinId]
     })
 
+
+    //Fetching data for the chart
     const {data : chartData = [], isLoading: chartIsLoading, error: chartError} = useQuery({
         queryFn : () => fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=10&interval=daily`).then((res)=>{return res.json()}),
     
@@ -31,6 +35,8 @@ if (error || chartError) return <p>Error loading data</p>;
     
 
   return (
+
+    //Displaying the fetched data
     <div>
         <div className='w-[100%] h-auto flex flex-col items-center justify-center gap-y-[1rem] pt-[2rem]'>
             <img src={coinData.image.large} className='w-[5rem]'/>

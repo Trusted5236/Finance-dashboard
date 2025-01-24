@@ -13,7 +13,7 @@ const Coin = () => {
 
     const { data : coinData = [], isLoading, error} = useQuery({
         queryFn : () => fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`).then((res)=>{return res.json()}),
-        staleTime: 1000 * 60 * 5,
+        
         queryKey: ["coinData", coinId]
     })
 

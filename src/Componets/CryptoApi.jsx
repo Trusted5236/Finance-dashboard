@@ -62,7 +62,7 @@ const CryptoApi = () => {
               onChange={handleChange}
               value={input}
               list='coinList'
-              className='border-none outline-none w-full'/>
+              className='border-none outline-none w-full '/>
               <button type='submit' className='bg-[#F5F5F5]'><CiSearch/></button>
 
               <datalist id='coinList'>{posts.map((item, index)=>(<option key={index} value={item.name}/>))}</datalist>

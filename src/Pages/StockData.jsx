@@ -24,11 +24,11 @@ const StockData = () => {
 
   return (
     <div>
-        <div className='flex flex-col items-center justify-center gap-y-[0.85rem] pb-[2rem]'>   
+        <div className='flex flex-col items-center justify-center gap-y-[0.85rem] pt-[2rem]'>   
             <h1 className='text-[1.5rem] font-bold'>{symbol}</h1>
         </div>
 
-        <div  className='w-full h-auto flex items-center justify-center flex-col'>
+        <div  className='w-full h-auto flex items-center justify-center flex-col overflow-hidden'>
         <StockChart fetchedData={stocks}/> 
         </div>
 
@@ -38,27 +38,27 @@ const StockData = () => {
           .map((stock, index) => (
             <div key={index}>
                 <div>
-                    <ul className='flex flex-row items-center justify-center gap-x-[17rem] border-b-[0.1rem]'>
+                    <ul className='flex flex-row items-center justify-center md:gap-x-[17rem] gap-x-[12rem] border-b-[0.1rem]'>
                         <li>Price</li>
                         <li>{currency}{stock.close}</li>
                     </ul>
 
 
-                    <ul className='flex flex-row items-center justify-center gap-x-[17rem] border-b-[0.1rem]'>
+                    <ul className='flex flex-row items-center justify-center md:gap-x-[17rem] gap-x-[12rem] border-b-[0.1rem]'>
                         <li>Change</li>
                         <li>{stock.change}</li>                   
                     </ul>
 
-                    <ul className='flex flex-row items-center justify-center gap-x-[15rem] border-b-[0.1rem]'>
+                    <ul className='flex flex-row items-center justify-center md:gap-x-[17rem] gap-x-[10rem] border-b-[0.1rem]'>
                         <li>Volume</li>
                         <li>{stock.volume}</li>
                     </ul>
 
-                   <ul className='flex flex-row items-center justify-center gap-x-[17rem] border-b-[0.1rem]'>
+                   <ul className='flex flex-row items-center justify-center md:gap-x-[17rem] gap-x-[12rem] border-b-[0.1rem]'>
                           <li>High</li>
                           <li>{stock.high}</li>
                    </ul >
-                   <ul className='flex flex-row items-center justify-center gap-x-[17rem] border-b-[0.1rem]'>
+                   <ul className='flex flex-row items-center justify-center md:gap-x-[17rem] gap-x-[12rem] border-b-[0.1rem]'>
                             <li>Low</li>
                             <li>{stock.low}</li>
                    </ul>
